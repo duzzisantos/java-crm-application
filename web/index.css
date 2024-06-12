@@ -1,0 +1,221 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 11, 2024, 10:40:17 PM
+    Author     : Duzie Uche-Abba
+*/
+
+body{
+    font-family: sans-serif;
+}
+
+
+h1 .fa.fa-sun-o {
+    color: gold;
+    font-size: 45px;
+}
+
+h2, h1 {
+    color: navy;
+}
+
+hr {
+    border: 2px solid whitesmoke;
+}
+.container {
+    width:80%;
+    height: 100vh;
+    padding-top: 80px;
+    padding-left: 10%;
+    
+}
+
+.navbar {
+    width: 100%;
+    margin-left: -8px;
+    margin-top: -8px;
+    height: 30px;
+    background: #6610f2;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px;
+    position: fixed;
+    z-index: 1;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row !important;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.nav-items > li {
+    margin-left: 15px;
+    list-style: none;
+}
+
+.nav-links, .content-add > a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.site-logo{
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: auto;
+}
+
+.large-font {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.medium-font {
+    font-size: 20px
+}
+
+article {
+    margin-top: 20px;
+    color: gray;
+}
+
+.content-wrapper{
+    height: fit-content;
+    width: fit-content;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2%;
+    margin-top: 20px;
+}
+
+.content-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background: #6610f2;
+    margin-top: 405px;
+    
+}
+
+.btn-primary, .btn-secondary {
+    background: #6610f2;
+    border: 1px solid transparent;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 3px;
+}
+
+.btn-secondary {
+    background: navy;
+    color: white;
+}
+
+.content-add:hover > a, .nav-links:hover, .btn-primary:hover, .btn-secondary:hover {
+    color: cyan;
+    cursor: pointer;
+}
+ 
+
+.medium-box {
+    height: 500px;
+    width: 400px;
+    border: 1px solid whitesmoke;
+    margin-bottom: 3%;
+}
+
+.medium-box:nth-child(1){
+    background-image: url("https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmxhY2slMjB3b21hbnxlbnwwfHwwfHx8MA%3D%3D");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size:cover;
+}
+
+.medium-box:nth-child(2){
+    background-image: url("https://images.unsplash.com/photo-1580893246395-52aead8960dc?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fGN1c3RvbWVyfGVufDB8fDB8fHww");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size:cover;
+}
+
+.medium-box:nth-child(3){
+    background-image: url("https://images.unsplash.com/photo-1622782914767-404fb9ab3f57?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fENSTXxlbnwwfHwwfHx8MA%3D%3D");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size:cover;
+}
+
+.medium-box:nth-child(4){
+    background-image: url("https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size:cover;
+}
+
+
+form {
+    height: fit-content;
+    width: 600px;
+    padding: 20px 30px;
+    margin-bottom: 3%;
+    box-shadow: 0px 0px 6px gray;
+   
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+input, select{
+    padding: 10px 6px;
+    border: 1px solid rgb(230,230,230);
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: navy;
+}
+
+
+
+
+.centered-text {
+    text-align: center;
+}
+
+.small-box {
+    height: 300px;
+    width: 200px;
+    padding: 10px 10px;
+    border: 1px solid whitesmoke;
+}
+
+.feedback-success {
+    padding: 10px 10px;
+    margin-top: 20px;
+    width: 50%;
+    background-color: lightcyan;
+    border: 1px solid cyan;
+}
+
+.fedback-failure {
+    padding: 10px 10px;
+    width: 50%;
+     margin-top: 20px;
+    background-color: pink;
+    border: 1px solid palevioletred;
+}
+
+
