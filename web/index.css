@@ -18,7 +18,7 @@ h1 .fa.fa-sun-o {
 }
 
 h2, h1 {
-    color: navy;
+    color: #212529;
 }
 
 hr {
@@ -37,7 +37,7 @@ hr {
     margin-left: -8px;
     margin-top: -8px;
     height: 30px;
-    background: #6610f2;
+    background: #084298;
     color: white;
     font-size: 15px;
     display: flex;
@@ -102,13 +102,13 @@ article {
     align-items: center;
     height: 50px;
     width: 100%;
-    background: #6610f2;
+    background: #084298;
     margin-top: 405px;
     
 }
 
 .btn-primary, .btn-secondary {
-    background: #6610f2;
+    background: green;
     border: 1px solid transparent;
     padding: 5px 15px;
     color: white;
@@ -116,13 +116,14 @@ article {
 }
 
 .btn-secondary {
-    background: navy;
+    background: #212529;
     color: white;
 }
 
 .content-add:hover > a, .nav-links:hover, .btn-primary:hover, .btn-secondary:hover {
     color: cyan;
     cursor: pointer;
+    
 }
  
 
@@ -161,31 +162,50 @@ article {
     background-size:cover;
 }
 
+.medium-box:nth-child(5){
+    background-image: url("https://plus.unsplash.com/premium_photo-1671028545792-f3a4c084f807?q=80&w=3328&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size:cover;
+}
+
+.medium-box:hover {
+    background-size: 110%;
+}
 
 form {
     height: 100%;
     width: 600px;
     padding: 20px 30px;
     margin-bottom: 10%;
-    box-shadow: 0px 0px 6px gray;
+    margin-top: 2%;
+    box-shadow: 0px 0px 30px gray;
    
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
-input, select{
+input, select, textarea{
     padding: 10px 6px;
     border: 1px solid rgb(230,230,230);
+}
+
+.container > .toast {
+    display: none;
+}
+
+textarea{
+    padding: 10px 10px
 }
 
 label {
     margin-bottom: 10px;
     font-weight: 700;
-    color: navy;
+    color: #212529;
 }
 
 form .form-group .form-text {

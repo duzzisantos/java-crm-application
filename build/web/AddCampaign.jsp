@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel="stylesheet" href="index.css">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <script src="index.js"></script>
         <title>Add Campaign</title>
     </head>
     <body>
@@ -29,10 +30,15 @@
                 <li>
                     <a href="AddProduct.jsp" class="nav-links"><i class="fa fa-list"></i> Products</a>
                 </li>
+                 <li>
+                    <a href="CampaignEnroll.jsp" class="nav-links"><i class="fa fa-check-circle"></i> Campaign Enroll</a>
+                </li>
             </ul>
         </nav>
          <section class="container">
             <h1 class="header-color">Add Campaign</h1> 
+            <hr>
+             <div class="toast"></div>
             <form method="post" action="AddCampaignServlet" name="addCampaign">
                 <div class="form-group">
                     <label for="campaign_name">Campaign Name</label>
