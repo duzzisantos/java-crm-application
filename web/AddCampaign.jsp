@@ -36,6 +36,7 @@
             <form method="post" action="AddCampaignServlet" name="addCampaign">
                 <div class="form-group">
                     <label for="campaign_name">Campaign Name</label>
+                    <small class="form-text">Provide a meaningful, memorable name for your campaign. It might be a code name - eg: 'Operation Empty Shelf'.</small>
                     <input type="text" name="campaign_name" id="campaign_name" placeholder="Enter campaign name" required/>
                 </div>
                 <div class="form-group">
@@ -50,6 +51,7 @@
                 </div>
                 <div class="form-group">
                     <label for="campaign_manager">Campaign Manager</label>
+                    <small class="form-text">Provide the name of the Account Manager who serves as campaign manager.</small>
                     <input type="text" name="campaign_manager" id="campaign_manager" required placeholder="Enter campaign manager. Eg: Tyron Laennister"/>
                 </div> 
                 <div class="form-group">
@@ -62,7 +64,19 @@
                 </div> 
                 <div class="form-group">
                     <label for="campaign_product">Campaign Product</label>
-                    <input type="text" name="campaign_product" id="campaign_product" required/>
+                    <small class="form-text">Provide only the main product being pushed in this campaign. This helps you track your product goals during the campaign.</small>
+                    <input type="text" name="campaign_product" id="campaign_product" required placeholder='Enter product name'/>
+                </div> 
+                 <div class="form-group">
+                    <label for="campaign_sales_value">Campaign Sales Value Target</label>
+                    <small class="form-text">How much in USD do you plan to make? Provide a rough estimate.</small>
+                    <input type="number" name="campaign_sales_value" id="campaign_product" required placeholder='Enter sales value target'/>
+                </div> 
+                
+                 <div class="form-group">
+                    <label for="campaign_sales_volume">Campaign Sales Volume Target</label>
+                    <small class="form-text">How many units of this product do you plan to sell?</small>
+                    <input type="number" name="campaign_sales_volume" id="campaign_product" required placeholder='Enter sales volume target'/>
                 </div> 
                
                 <button type="submit" class="btn-primary">Submit</button>

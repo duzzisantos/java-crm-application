@@ -54,15 +54,18 @@
                 </div>
                 <div class="form-group">
                     <label for="product_price">Product Price (USD)</label>
+                    <small class="form-text">In the best interests of your company, you need to fill in the current price of this product. In case of doubt, cross-check from your sources.</small>
                     <input type="number" name="product_price" id="product_price" placeholder="Enter product price" required/>
                 </div> 
                  <div class="form-group">
                     <label for="product_manager">Product Manager</label>
+                    <small class="form-text">Account managers also are in charge of the products in this case. Fill appropriately the account manager responsible.</small>
                     <input type="text" name="product_manager" id="product_manager" placeholder="Enter product manager" required/>
                 </div> 
                
                 <div class="form-group">
                     <label for="product_origin">Product Origin</label>
+                    <small class="form-text">Country names are required in this case.   State which country the product was manufactured.</small>
                     <input type="text" name="product_origin" id="product_origin" placeholder="Enter product origin" required/>
                 </div> 
                 <button type="submit" class="btn-primary">Submit</button>

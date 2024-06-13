@@ -45,6 +45,7 @@
                
                 <div class="form-group">
                     <label for="product_specialization">Product Specialization</label>
+                    <small class="form-text">Every account manager is selling at least one product, and their specialization is required. Choose any one from the list.</small>
                     <select id="product_specialization" name="product_specialization" required>
                         <option selected>Please select</option>
                         <option value="Camera">Camera</option>
@@ -55,11 +56,13 @@
                 </div>
                 <div class="form-group">
                     <label for="grade_level">Grade Level</label>
+                    <small class="form-text">Grade levels range from 1 to 15. In any case you have no idea, you may fill in 'Not yet known' or better still ask your HR.</small>
                     <input type="text" name="grade_level" id="grade_level" required/>
                 </div> 
                 
                 <div class="form-group">
                     <label for="manager_email">Email</label>
+                    <small class="form-text">Ensure to use work email address. Email addresses with generic domain names (eg: yahoo.com, gmail.com) are not so official.</small>
                     <input type="email" name="manager_email" id="manager_email" placeholder="Enter email" required/>
                 </div> 
                 
@@ -69,6 +72,7 @@
                 </div> 
                 <div class="form-group">
                     <label for="doe">Date of Employment</label>
+                    <small class="form-text">This must be correctly filled. In any case of doubts, please kindly consult your HR to confirm.</small>
                     <input type="date" name="doe" id="doe" required/>
                 </div> 
                
