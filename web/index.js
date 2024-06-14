@@ -27,23 +27,33 @@ const countdownText = () => {
     });
 };
 
-const getFeedBack = () => {
-    const toast = document.querySelectorAll('.toast');
-    const submit = document.querySelectorAll('.btn-primary[type="submit"]');
-    
-    submit.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            toast.forEach((element) => {
-                element.textContent = 'Form submitted';
-                element.style.backgroundColor = 'cyan';
-                element.style.display = 'block';
-            });
-            return toast;
+
+
+//Event listener for showing and hiding toasts
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const closeButtons = document.querySelectorAll('.close-btn');
+
+    closeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const toast = button.closest('.toast');
+            hideToast(toast);
         });
-        return btn;
     });
-    
-};
+
+    window.showToast = function(toast) {
+        toast.classList.add('show');
+        setTimeout(() => {
+            hideToast(toast);
+        }, 7000); // Hide after 3 seconds
+    };
+
+    function hideToast(toast) {
+        toast.classList.remove('show');
+    }
+});
+
 
 countdownText();
+
 

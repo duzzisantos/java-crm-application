@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link rel="stylesheet" href="index.css">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
          <script src="index.js"></script>
@@ -38,8 +39,9 @@
          <section class="container">
             <h1 class="header-color">Add Campaign</h1> 
             <hr>
-             <div class="toast"></div>
+             
             <form method="post" action="AddCampaignServlet" name="addCampaign">
+                <div class="toast" id="toast1">Form submitted <button class="close-btn"><i class="fa fa-close"></i></button></div>
                 <div class="form-group">
                     <label for="campaign_name">Campaign Name</label>
                     <small class="form-text">Provide a meaningful, memorable name for your campaign. It might be a code name - eg: 'Operation Empty Shelf'.</small>
@@ -90,6 +92,21 @@
                 
                 <div class="feedback"></div>
             </form>
+            
         </section>
+         <%
+        // Use JSP scriptlet to check if the toast should be shown
+        Boolean showToast = (Boolean) request.getAttribute("showToast");
+        if (showToast != null && showToast) {
+    %>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toast = document.getElementById('toast1');
+            showToast(toast);
+        });
+    </script>
+    <%
+        }
+    %>
     </body>
 </html>

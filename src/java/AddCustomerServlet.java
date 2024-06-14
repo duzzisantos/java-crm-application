@@ -44,13 +44,11 @@ public class AddCustomerServlet extends HttpServlet {
         
         
         //Add prompt message to add another data
-        request.setAttribute("customer", "Successfully created customer! Add a new customer");
+        request.setAttribute("showToast", true);
         
         //Call the menu again
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/AddCustomer.jsp");
-        if(dispatcher != null){
-            dispatcher.forward(request, response);
-      }
+        request.getRequestDispatcher("/AddCustomer.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

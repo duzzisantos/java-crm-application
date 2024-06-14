@@ -35,11 +35,13 @@
                 </li>
             </ul>
         </nav>
+         
         <section class="container">
             <h1 class="header-color">Campaign Enroll</h1> 
             <hr>
-            <div class="toast"></div>
+           
             <form method="post" action="CampaignServlet" name="newCampaign">
+                <div class="toast" id="toast5">Form submitted <button class="close-btn"><i class="fa fa-close"></i></button></div>
                 <div class="form-group">
                     <label for="campaign_ID">Campaign ID</label>
                     <input type="text" name="campaign_ID" id="product_ID" placeholder="Enter campaign ID" required/>
@@ -79,7 +81,23 @@
                 <button type="submit" class="btn-primary">Submit</button>
                 <input type="reset" class="btn-secondary"/>
             </form>
+            
         </section>
         <script src="index.js"></script>
+        
+          <%
+        // Use JSP scriptlet to check if the toast should be shown
+        Boolean showToast = (Boolean) request.getAttribute("showToast");
+        if (showToast != null && showToast) {
+    %>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toast = document.getElementById('toast5');
+            showToast(toast);
+        });
+    </script>
+    <%
+        }
+    %>
     </body>
 </html>

@@ -177,7 +177,7 @@ form {
     height: 100%;
     width: 600px;
     padding: 20px 30px;
-    margin-bottom: 10%;
+    margin-bottom: 3%;
     margin-top: 2%;
     box-shadow: 0px 0px 30px gray;
    
@@ -194,9 +194,6 @@ input, select, textarea{
     border: 1px solid rgb(230,230,230);
 }
 
-.container > .toast {
-    display: none;
-}
 
 textarea{
     padding: 10px 10px
@@ -244,3 +241,26 @@ form .form-group .form-text {
 }
 
 
+.toast {
+    height: 20px;
+    width: 200px;
+    background: lightcyan;
+    border-radius: 5px;
+    padding: 10px 10px;
+    box-shadow: 0px 0px 2px gray;
+    font-size: 13px;
+    color: #212529;
+    display: none; /* Hide toasts by default */
+    margin-left: auto;
+}
+
+.toast button {
+    margin-left: 40%;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+
+.show {
+    display: block; /* Show toast when the show class is added */
+}

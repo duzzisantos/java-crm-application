@@ -38,8 +38,9 @@
         <section class="container">
             <h1 class="header-color">Add Customer</h1> 
             <hr>
-             <div class="toast"></div>
+             
             <form method="post" action="AddCustomerServlet" name="addCustomer">
+                <div class="toast" id="toast3">Form submitted <button class="close-btn"><i class="fa fa-close"></i></button></div>
                 <div class="form-group">
                     <label for="first_name">First Name</label>
                     <input type="text" name="first_name" id="first_name" placeholder="Enter first name" required/>
@@ -68,6 +69,21 @@
                 <button type="submit" class="btn-primary">Submit</button>
                 <input type="reset" class="btn-secondary"/>
             </form>
+            
         </section>
+          <%
+        // Use JSP scriptlet to check if the toast should be shown
+        Boolean showToast = (Boolean) request.getAttribute("showToast");
+        if (showToast != null && showToast) {
+    %>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toast = document.getElementById('toast3');
+            showToast(toast);
+        });
+    </script>
+    <%
+        }
+    %>
     </body>
 </html>

@@ -38,8 +38,8 @@
         <section class="container">
             <h1 class="header-color">Add Account Manager</h1> 
             <hr>
-             <div class="toast"></div>
             <form method="post" action="AccountManagerServlet" name="addAccountManager">
+                <div class="toast" id="toast2">Form submitted <button class="close-btn"><i class="fa fa-close"></i></button></div>
                 <div class="form-group">
                     <label for="manager_first_name">First Name</label>
                     <input type="text" name="manager_first_name" id="manager_first_name" placeholder="Enter first name" required/>
@@ -90,5 +90,19 @@
             
             
         </section>
+          <%
+        // Use JSP scriptlet to check if the toast should be shown
+        Boolean showToast = (Boolean) request.getAttribute("showToast");
+        if (showToast != null && showToast) {
+    %>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toast = document.getElementById('toast2');
+            showToast(toast);
+        });
+    </script>
+    <%
+        }
+    %>
     </body>
 </html>
