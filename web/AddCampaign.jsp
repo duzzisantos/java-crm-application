@@ -18,7 +18,12 @@
     <body>
          <nav class="navbar">
             <a href="index.html" class="nav-links site-logo">Funnel</a>
-            <ul class="nav-items">
+            
+<!--            <input class="search" placeholder="Search" type="search"/>-->
+        </nav>
+         <section class="container">
+             <div class="side-bar">
+                <ul class="nav-items">
                 <li>
                     <a href="AddAccountManager.jsp" class="nav-links"> <i class="fa fa-male"></i> Account Managers</a>
                 </li>
@@ -31,14 +36,14 @@
                 <li>
                     <a href="AddProduct.jsp" class="nav-links"><i class="fa fa-list"></i> Products</a>
                 </li>
-                 <li>
+                <li>
                     <a href="CampaignEnroll.jsp" class="nav-links"><i class="fa fa-check-circle"></i> Campaign Enroll</a>
                 </li>
             </ul>
-        </nav>
-         <section class="container">
-            <h1 class="header-color">Add Campaign</h1> 
-            <hr>
+            </div>
+             <main>
+                 <h1 class="header-color">Add Campaign</h1> 
+                 <hr>
              
             <form method="post" action="AddCampaignServlet" name="addCampaign">
                 <div class="toast" id="toast1">Form submitted <button class="close-btn"><i class="fa fa-close"></i></button></div>
@@ -92,6 +97,7 @@
                 
                 <div class="feedback"></div>
             </form>
+             </main>
             
         </section>
          <%

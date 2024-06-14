@@ -45,7 +45,7 @@ const countdownText = () => {
         toast.classList.add('show');
         setTimeout(() => {
             hideToast(toast);
-        }, 7000); // Hide after 3 seconds
+        }, 7000); // Hide after 7 seconds
     };
 
     function hideToast(toast) {

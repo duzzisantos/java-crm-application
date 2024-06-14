@@ -13,7 +13,7 @@ body{
 
 
 h1 .fa.fa-sun-o {
-    color: gold;
+    color: orange;
     font-size: 45px;
 }
 
@@ -23,13 +23,35 @@ h2, h1 {
 
 hr {
     border: 2px solid whitesmoke;
+    
 }
 .container {
-    width:80%;
+    width:100%;
     height: fit-content;
-    padding-top: 80px;
-    padding-left: 10%;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     
+}
+
+.side-bar {
+    width: 12%;
+    height: 100vh;
+    background: white;
+    color: #212529;
+    margin-left: -8px;
+    padding-left: 0;
+    padding-top: 10px;
+    box-shadow: 0px 0px 1px gray;
+    position: fixed;
+    overflow: hidden
+}
+
+main {
+    padding-left: 15%;
+    height: fit-content;
+   
 }
 
 .navbar {
@@ -47,19 +69,35 @@ hr {
     z-index: 1;
 }
 
+.navbar .search {
+    margin-left: auto;
+    margin-right: 1.5%;
+    width: 15%;
+    border: 1px solid transparent
+}
+
 .nav-items {
     display: flex;
-    flex-direction: row !important;
-    margin-left: 40px;
-    margin-top: 10px;
+    flex-direction: column !important;
+    
+    
 }
 
 .nav-items > li {
-    margin-left: 15px;
+    
     list-style: none;
+    margin-left: -30px;
+    margin-bottom: 12%;
+    font-size: 14px;
+   
 }
 
-.nav-links, .content-add > a {
+.nav-items > li > a {
+    text-decoration: none;
+    color: #212529;
+}
+
+ .content-add > a {
     text-decoration: none;
     color: white;
 }
@@ -69,6 +107,8 @@ hr {
     font-size: 20px;
     font-weight: 700;
     margin-top: auto;
+    color: white;
+    text-decoration: none;
 }
 
 .large-font {
@@ -88,7 +128,7 @@ article {
 .content-wrapper{
     height: fit-content;
     width: fit-content;
-    padding: 10px 10px;
+    padding: 10px 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -121,7 +161,6 @@ article {
 }
 
 .content-add:hover > a, .nav-links:hover, .btn-primary:hover, .btn-secondary:hover {
-    color: cyan;
     cursor: pointer;
     
 }
@@ -179,7 +218,7 @@ form {
     padding: 20px 30px;
     margin-bottom: 3%;
     margin-top: 2%;
-    box-shadow: 0px 0px 30px gray;
+    box-shadow: 0px 0px 20px gray;
    
 }
 
