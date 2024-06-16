@@ -12,13 +12,17 @@
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="index.js"></script>
-        <title>Product Page</title>
+        <title>Add Product</title>
     </head>
     <body>
          <nav class="navbar">
             <a href="index.html" class="nav-links site-logo">Funnel</a>
             
-<!--            <input class="search" placeholder="Search" type="search"/>-->
+            <input class="search" placeholder="Search" type="search"/>
+            <div class="user-details">
+                <button><i class="fa fa-bell"></i></button>
+                <button><i class="fa fa-user-circle"></i></button>
+            </div>
         </nav>
         <section class="container">
             <div class="side-bar">

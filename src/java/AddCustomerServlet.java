@@ -36,8 +36,11 @@ public class AddCustomerServlet extends HttpServlet {
         
         System.out.println("First name: " + request.getParameter("first_name"));
         System.out.println("Last name: " + request.getParameter("last_name"));
-        System.out.println("email: " + request.getParameter("email"));
-        System.out.println("phone: " + request.getParameter("phone"));
+        System.out.println("Email: " + request.getParameter("email"));
+        System.out.println("Phone: " + request.getParameter("phone"));
+        System.out.println("City: " + request.getParameter("city"));
+        System.out.println("State: " + request.getParameter("state_us"));
+        System.out.println("ZIP Code: " + request.getParameter("zip_code"));
          System.out.println("Postal address: " + request.getParameter("postal_address"));
         System.out.println("Date of birth: " + request.getParameter("dob"));
         

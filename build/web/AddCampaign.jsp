@@ -19,7 +19,11 @@
          <nav class="navbar">
             <a href="index.html" class="nav-links site-logo">Funnel</a>
             
-<!--            <input class="search" placeholder="Search" type="search"/>-->
+            <input class="search" placeholder="Search" type="search"/>
+            <div class="user-details">
+                <button><i class="fa fa-bell"></i></button>
+                <button><i class="fa fa-user-circle"></i></button>
+            </div>
         </nav>
          <section class="container">
              <div class="side-bar">
@@ -65,7 +69,7 @@
                 <div class="form-group">
                     <label for="campaign_manager">Campaign Manager</label>
                     <small class="form-text">Provide the name of the Account Manager who serves as campaign manager.</small>
-                    <input type="text" name="campaign_manager" id="campaign_manager" required placeholder="Enter campaign manager. Eg: Tyron Laennister"/>
+                    <input type="text" name="campaign_manager" id="campaign_manager" required placeholder="Enter campaign manager. Eg: Tyrion Lannister"/>
                 </div> 
                 <div class="form-group">
                     <label for="campaign_start">Campaign Start</label>

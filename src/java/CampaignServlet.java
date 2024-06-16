@@ -33,10 +33,10 @@ public class CampaignServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-         System.out.println("Campaign ID: " + request.getParameter("campaign_ID"));
-        System.out.println("Campaign Manager ID: " + request.getParameter("campaign_manager_ID"));
-        System.out.println("Customer ID: " + request.getParameter("customer_ID"));
-        System.out.println("Product ID: " + request.getParameter("product_ID"));
+         System.out.println("Campaign Name: " + request.getParameter("campaign_enroll_name"));
+        System.out.println("Campaign Manager: " + request.getParameter("campaign_enroll_manager"));
+        System.out.println("Customer ID: " + request.getParameter("customer_enroll_ID"));
+        System.out.println("Campaign Product: " + request.getParameter("campaigned_product"));
         System.out.println("Has responded?: " + request.getParameter("has_responded"));
         System.out.println("Campaign content: " + request.getParameter("campaign_content"));
         

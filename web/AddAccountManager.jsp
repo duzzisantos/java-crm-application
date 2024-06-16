@@ -18,7 +18,11 @@
         <nav class="navbar">
             <a href="index.html" class="nav-links site-logo">Funnel</a>
             
-<!--            <input class="search" placeholder="Search" type="search"/>-->
+            <input class="search" placeholder="Search" type="search"/>
+            <div class="user-details">
+                <button><i class="fa fa-bell"></i></button>
+                <button><i class="fa fa-user-circle"></i></button>
+            </div>
         </nav>
         <section class="container">
             <div class="side-bar">
