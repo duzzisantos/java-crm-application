@@ -43,6 +43,23 @@
                     <a href="CampaignEnroll.jsp" class="nav-links"><i class="fa fa-check-circle"></i> Campaign Enroll</a>
                 </li>
             </ul>
+                <hr>
+                <ul class="nav-items">
+               
+                <li>
+                    <a href="InfoManagement.jsp" class="nav-links"> <i class="fa fa-database"></i> Information Management</a>
+                </li>
+                <li>
+                    <a href="Analytics.jsp" class="nav-links"><i class="fa fa-pie-chart"></i> Analytics</a>
+                </li>
+                 <li>
+                    <a href="MarketingFunnel.jsp" class="nav-links"> <i class="fa fa-filter"></i> Marketing Funnel</a>
+                </li>
+                 <li>
+                    <a href="Metadata.jsp" class="nav-links"> <i class="fa fa-info-circle"></i> Metadata</a>
+                </li>
+               
+            </ul>
             </div>
             <main>
                 <h1 class="header-color">Add Customer</h1> 
@@ -130,7 +147,7 @@
                 </div> 
                 <div class="form-group">
                     <label for="zip_code">ZIP Code</label>
-                    <small class="form-text">Provide a US ZIP Code (for US residents only). Write 'Not applicable' otherwise.</small>
+                    <small class="form-text">Provide a US ZIP Code (for US residents only).</small>
                     <input type="text" name="zip_code" id="zip_code" placeholder="Enter ZIP Code" pattern="^\d{5}(-\d{4})?$" required/>
                 </div> 
                 <div class="form-group">

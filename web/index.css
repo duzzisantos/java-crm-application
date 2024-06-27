@@ -8,13 +8,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 */
 
 body{
-    font-family: sans-serif;
+    font-family:  sans-serif;
 }
 
 
 h1 .fa.fa-sun-o {
     color: orange;
     font-size: 45px;
+}
+
+.nav-items > .nav-links >  .fa.fa-filter {
+    color: green;
 }
 
 h2, h1 {
@@ -118,6 +122,7 @@ main {
     text-decoration: none;
     color: #212529;
 }
+
 
  .content-add > a {
     text-decoration: none;
@@ -325,3 +330,4 @@ form .form-group .form-text {
 .show {
     display: block; /* Show toast when the show class is added */
 }
+

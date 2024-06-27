@@ -44,6 +44,23 @@
                     <a href="CampaignEnroll.jsp" class="nav-links"><i class="fa fa-check-circle"></i> Campaign Enroll</a>
                 </li>
             </ul>
+                <hr>
+                <ul class="nav-items">
+               
+                 <li>
+                    <a href="InfoManagement.jsp" class="nav-links"> <i class="fa fa-database"></i> Information Management</a>
+                </li>
+                <li>
+                    <a href="Analytics.jsp" class="nav-links"><i class="fa fa-pie-chart"></i> Analytics</a>
+                </li>
+                 <li>
+                    <a href="MarketingFunnel.jsp" class="nav-links"> <i class="fa fa-filter"></i> Marketing Funnel</a>
+                </li>
+                 <li>
+                    <a href="Metadata.jsp" class="nav-links"> <i class="fa fa-info-circle"></i> Metadata</a>
+                </li>
+               
+            </ul>
             </div>
             <main>
                 <h1 class="header-color">Campaign Enroll</h1> 
