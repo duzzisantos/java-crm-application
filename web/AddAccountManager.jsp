@@ -95,7 +95,9 @@
                 <div class="form-group">
                     <label for="manager_email">Email</label>
                     <small class="form-text">Ensure to use work email address. Email addresses with generic domain names (eg: yahoo.com, gmail.com) are not so official.</small>
-                    <input type="email" name="manager_email" id="manager_email" placeholder="Enter email" required/>
+                    <input type="text" name="manager_email" id="manager_email" placeholder="Enter email"
+                           pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;" 
+                           required/>
                 </div> 
                 
                 <div class="form-group">

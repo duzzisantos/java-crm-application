@@ -69,6 +69,12 @@
             <form method="post" action="CampaignServlet" name="newCampaign">
                 <div class="toast" id="toast5">Form submitted <button class="close-btn"><i class="fa fa-close"></i></button></div>
                 <div class="form-group">
+                    <label for="campaign_enroll_ID">Campaign ID</label>
+                     <select required name="campaign_enroll_ID" id="campaign_enroll_ID">
+                      
+                    </select>
+                </div> 
+                <div class="form-group">
                     <label for="campaign_enroll_name">Campaign Name</label>
                      <select required name="campaign_enroll_name" id="campaign_enroll_name">
                         <option selected value="">Please Select</option>
@@ -79,7 +85,14 @@
                 </div> 
                 
                  <div class="form-group">
-                    <label for="campaign_enroll_manager">Campaign Manager</label>
+                    <label for="campaign_enroll_manager_ID">Account Manager ID</label>
+                    <select required name="campaign_enroll_manager_ID" id="campaign_enroll_manager_ID">
+                        
+                    </select>
+                </div> 
+                
+                 <div class="form-group">
+                    <label for="campaign_enroll_manager">Account Manager</label>
                     <select required name="campaign_enroll_manager" id="campaign_enroll_manager">
                         <option selected value="">Please Select</option>
                         <option value="CM029">Obinna Kalu</option>
@@ -102,7 +115,9 @@
                 <div class="form-group">
                     <label for="customer_enroll_ID">Customer ID</label>
                     <small class='form-text'><strong>Tip:</strong> To avoid mistakes - you may want to paste this from your clipboard always.</small>
-                    <input type="text" name="customer_enroll_ID" id="customer_enroll_ID" placeholder="Enter customer ID" required/>
+                    <select id="customer_enroll_ID" name="customer_enroll_ID" required>
+                       
+                    </select>
                 </div>
               
                 

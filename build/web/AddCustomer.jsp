@@ -78,7 +78,9 @@
                
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Enter email" required/>
+                    <input type="text" name="email" id="email" placeholder="Enter email"
+                     pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;" 
+                     required/>
                 </div> 
                 <div class="form-group">
                     <label for="postal_address">Postal Address</label>

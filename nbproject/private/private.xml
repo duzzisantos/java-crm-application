@@ -3,14 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/user/NetBeansProjects/CRMApplication/web/AddCampaign.jsp</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/src/java/entity/Campaignenrollments.java</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/src/java/entity/Products.java</file>
             <file>file:/Users/user/NetBeansProjects/CRMApplication/web/AddAccountManager.jsp</file>
-            <file>file:/Users/user/NetBeansProjects/CRMApplication/web/AddCustomer.jsp</file>
-            <file>file:/Users/user/NetBeansProjects/CRMApplication/web/index.css</file>
-            <file>file:/Users/user/NetBeansProjects/CRMApplication/web/AddProduct.jsp</file>
-            <file>file:/Users/user/NetBeansProjects/CRMApplication/web/index.html</file>
-            <file>file:/Users/user/NetBeansProjects/CRMApplication/web/index.js</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/src/java/entity/Customers.java</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/src/java/entity/Accountmanagers.java</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/src/java/session/AccountmanagersFacadeLocal.java</file>
             <file>file:/Users/user/NetBeansProjects/CRMApplication/web/CampaignEnroll.jsp</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/src/java/session/ProductsFacade.java</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/src/conf/persistence.xml</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/src/java/session/CampaignenrollmentsFacadeLocal.java</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/web/index.html</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/src/java/AddCampaignServlet.java</file>
+            <file>file:/Users/user/NetBeansProjects/CRMApplication/src/java/entity/Campaigns.java</file>
         </group>
     </open-files>
 </project-private>

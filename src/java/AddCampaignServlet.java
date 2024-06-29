@@ -13,12 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.*;
 import javax.servlet.*;
 
+//Persistence related dependeencies are required as well
+import entity.*;
+import session.*;
+import javax.persistence.*;
+import javax.transaction.*;
+import javax.annotation.*;
+import javax.enterprise.context.*;
+import javax.ejb.*;
+
+import utilities.DateCleanser;
+
 /**
  *
- * @author user
+ * @author Duzie Uche-Abba
  */
 @WebServlet(urlPatterns = {"/AddCampaignServlet"})
 public class AddCampaignServlet extends HttpServlet {
+    @EJB
+    private CampaignsFacadeLocal CampaignSession;
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,6 +47,8 @@ public class AddCampaignServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        System.out.println(CampaignSession.count());
+        
         System.out.println("Campaign name: " + request.getParameter("campaign_name"));
         System.out.println("Campaign type: " + request.getParameter("campaign_type"));
         System.out.println("Campaign manager: " + request.getParameter("campaign_manager"));
@@ -40,7 +56,22 @@ public class AddCampaignServlet extends HttpServlet {
          System.out.println("Campaign end: " + request.getParameter("campaign_end"));
         System.out.println("Campaign product: " + request.getParameter("campaign_product"));
         
+        //Store campaign data into database
+        Campaigns camp = new Campaigns();
         
+        camp.setCampaignName(request.getParameter("campaign_name"));
+        camp.setCampaignType(request.getParameter("camapaign_type"));
+        camp.setCampaignManager(request.getParameter("campaign_manager"));
+        camp.setCampaignProduct(request.getParameter("campaign_product"));
+        
+        //Convert HTML date string input into format which obeys SQL and Java data types
+        DateCleanser campaignStart = new DateCleanser(request.getParameter("campaign_start"));
+        DateCleanser campaignEnd = new DateCleanser(request.getParameter("campaign_end"));
+        
+        camp.setCampaignStart(campaignStart.getCleansedDate());
+        camp.setCampaignEnd(campaignEnd.getCleansedDate());
+        
+        CampaignSession.create(camp);
         
         //Add prompt message to add another data
         request.setAttribute("showToast", true);

@@ -13,6 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.*;
 import javax.servlet.*;
 
+//Persistence related dependeencies are required as well
+import entity.*;
+import session.*;
+import javax.persistence.*;
+import javax.transaction.*;
+import javax.annotation.*;
+import javax.enterprise.context.*;
+import javax.ejb.*;
+
+import utilities.DateCleanser;
+
 /**
  *
  * @author Duzie Uche-Abba
@@ -20,7 +31,8 @@ import javax.servlet.*;
 @WebServlet(urlPatterns = {"/AccountManagerServlet"})
 
 public class AccountManagerServlet extends HttpServlet {
-
+@EJB
+private AccountmanagersFacadeLocal AccountManagerSession;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,6 +53,26 @@ public class AccountManagerServlet extends HttpServlet {
          System.out.println("Phone number: " + request.getParameter("manager_phone"));
         System.out.println("Grade level: " + request.getParameter("grade_level"));
         System.out.println("Date of employment: " + request.getParameter("doe"));
+        
+        System.out.println(AccountManagerSession.count());
+        
+        //Create data to be stored in AccountManagers table
+        Accountmanagers acc = new Accountmanagers();
+       
+        acc.setFirstName(request.getParameter("manager_first_name"));
+        acc.setLastName(request.getParameter("manager_last_name"));
+        acc.setProductSpecialization(request.getParameter("product_specialization"));
+        acc.setEmail(request.getParameter("email"));
+        acc.setGradeLevel(request.getParameter("grade_level"));
+        
+        //Since HTML date input values are parsed as strings in the request body, we ought to convert them to date format to fit into SQL and Obey data rules in Java
+        DateCleanser cleanser = new DateCleanser(request.getParameter("doe"));
+        acc.setDateOfEmployment(cleanser.getCleansedDate());
+        acc.setPhoneNumber(request.getParameter("manager_phone"));
+        
+        AccountManagerSession.create(acc);
+        
+        
         
         
         //Add prompt message to add another data

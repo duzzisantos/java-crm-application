@@ -13,12 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.*;
 import javax.servlet.*;
 
+//Persistence related dependeencies are required as well
+import entity.*;
+import session.*;
+import javax.persistence.*;
+import javax.transaction.*;
+import javax.annotation.*;
+import javax.enterprise.context.*;
+import javax.ejb.*;
+
+import utilities.DateCleanser;
+
 /**
  *
- * @author user
+ * @author Duzie Uche-Abba
  */
 @WebServlet(urlPatterns = {"/AddCustomerServlet"})
 public class AddCustomerServlet extends HttpServlet {
+    @EJB
+    private CustomersFacadeLocal CustomerSession;
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,7 +47,7 @@ public class AddCustomerServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
       
-        
+        System.out.println(CustomerSession.count());
         System.out.println("First name: " + request.getParameter("first_name"));
         System.out.println("Last name: " + request.getParameter("last_name"));
         System.out.println("Email: " + request.getParameter("email"));
@@ -44,7 +58,22 @@ public class AddCustomerServlet extends HttpServlet {
          System.out.println("Postal address: " + request.getParameter("postal_address"));
         System.out.println("Date of birth: " + request.getParameter("dob"));
         
+        Customers cust = new Customers();
         
+        cust.setFirstName(request.getParameter("first_name"));
+        cust.setLastName(request.getParameter("last_name"));
+        cust.setEmail(request.getParameter("email"));
+        cust.setPhoneNumber(request.getParameter("phone"));
+        cust.setCity(request.getParameter("city"));
+        cust.setUsState(request.getParameter("state_us"));
+        cust.setPostalAddress(request.getParameter("postal_address"));
+        cust.setZipCode(Integer.parseInt(request.getParameter("zip_code")));
+        
+        DateCleanser cleanser = new DateCleanser(request.getParameter("dob"));
+        cust.setDateOfBirth(cleanser.getCleansedDate());
+        
+        
+        CustomerSession.create(cust);
         
         //Add prompt message to add another data
         request.setAttribute("showToast", true);

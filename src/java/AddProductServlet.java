@@ -13,12 +13,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.*;
 import javax.servlet.*;
 
+
+//Persistence related dependeencies are required as well
+import entity.*;
+import session.*;
+import javax.persistence.*;
+import javax.transaction.*;
+import javax.annotation.*;
+import javax.enterprise.context.*;
+import javax.ejb.*;
 /**
  *
- * @author user
+ * @author Duzie Uche-Abba
  */
 @WebServlet(urlPatterns = {"/AddProductServlet"})
 public class AddProductServlet extends HttpServlet {
+    @EJB
+    private ProductsFacadeLocal ProductSession;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,12 +45,26 @@ public class AddProductServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         
+        
         System.out.println("Product name: " + request.getParameter("product_name"));
         System.out.println("Product category: " + request.getParameter("product_category"));
         System.out.println("Product price: " + request.getParameter("product_price"));
         System.out.println("Product manufacturer: " + request.getParameter("product_manufacturer"));
         System.out.println("Product manager: " + request.getParameter("product_manager"));
         System.out.println("Product origin: " + request.getParameter("product_origin"));
+
+         Products prod = new Products();
+         
+         
+         prod.setProductName(request.getParameter("product_name"));
+         prod.setProductCategory(request.getParameter("product_category"));
+         prod.setProductPrice(Integer.parseInt(request.getParameter("product_price")));
+         prod.setProductManufacturer(request.getParameter("product_manufacturer"));
+         prod.setProductManager(request.getParameter("product_manager"));
+         prod.setProductOrigin(request.getParameter("product_origin"));
+         
+         ProductSession.create(prod);
+         System.out.println(ProductSession.count());
         
         
         //Add prompt message to add another data
