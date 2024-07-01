@@ -58,53 +58,9 @@
         
     </head>
     <body>
-          <nav class="navbar">
-            <a href="index.html" class="nav-links site-logo">Funnel</a>
-            
-            <input class="search" placeholder="Search" type="search"/>
-            <div class="user-details">
-                <button><i class="fa fa-bell"></i></button>
-                <button><i class="fa fa-user-circle"></i></button>
-            </div>
-        </nav>
-         
+         <%@include file="Navbar.jsp" %> %>
         <section class="container">
-            <div class="side-bar">
-                <ul class="nav-items">
-                <li>
-                    <a href="AddAccountManager.jsp" class="nav-links"> <i class="fa fa-male"></i> Account Managers</a>
-                </li>
-                <li>
-                    <a href="AddCustomer.jsp" class="nav-links"> <i class="fa fa-group"></i> Customers</a>
-                </li>
-                <li>
-                    <a href="AddCampaign.jsp" class="nav-links"><i class="fa fa-bullhorn"></i> Campaigns</a>
-                </li>
-                <li>
-                    <a href="AddProduct.jsp" class="nav-links"><i class="fa fa-list"></i> Products</a>
-                </li>
-                <li>
-                    <a href="CampaignEnroll.jsp" class="nav-links"><i class="fa fa-check-circle"></i> Campaign Enroll</a>
-                </li>
-            </ul>
-                <hr>
-                <ul class="nav-items">
-               
-                <li>
-                    <a href="InfoManagement.jsp" class="nav-links"> <i class="fa fa-database"></i> Information Management</a>
-                </li>
-                <li>
-                    <a href="Analytics.jsp" class="nav-links"><i class="fa fa-pie-chart"></i> Analytics</a>
-                </li>
-                 <li>
-                    <a href="MarketingFunnel.jsp" class="nav-links"> <i class="fa fa-filter"></i> Marketing Funnel</a>
-                </li>
-                 <li>
-                    <a href="Metadata.jsp" class="nav-links"> <i class="fa fa-info-circle"></i> Metadata</a>
-                </li>
-               
-            </ul>
-            </div>
+            <%@include file="SideBar.jsp" %>
             <main>
                 <h1 class="header-color">Information Management</h1> 
             <hr>
@@ -138,6 +94,9 @@
                     <th>Email</th>
                     <th>Phone Number</th>
                     <th>Date of Employment</th>
+                    <th>Edit</th>
+                    <th>Delete</th> 
+                    <th>Contact</th>
                 </tr>
             </thead>
             <tbody>
@@ -151,6 +110,9 @@
                             <td><%= element.getEmail() %></td>
                             <td><%= element.getPhoneNumber() %></td>
                             <td><%= element.getDateOfEmployment() %></td>
+                            <td><button class="small-btn"><i class="fa fa-pencil"></i></button></td>
+                            <td><button class="small-btn"><i class="fa fa-trash"></button></td>
+                            <td><button class="small-btn"><i class="fa fa-envelope"></button></td>
                         </tr>
                 <%  }
                 } %>
@@ -174,6 +136,9 @@
                     <th>Product ID</th>
                     <th>Sales Volume Target</th>
                     <th>Sales Value Target</th>
+                    <th>Edit</th>
+                    <th>Delete</th> 
+                   
                 </tr>
             </thead>
             <tbody>
@@ -190,6 +155,9 @@
                             <td><%= cList.getProductId() %></td>
                             <td><%= cList.getCampaignSalesVolumeTarget() %></td>
                             <td><%= cList.getCampaignSalesValueTarget() %></td>
+                            <td><button class="small-btn"><i class="fa fa-pencil"></i></button></td>
+                            <td><button class="small-btn"><i class="fa fa-trash"></button></td>
+                            
                         </tr>
                 <%  }
                 } %>
@@ -213,6 +181,9 @@
                     <th>US State</th>
                     <th>ZIP Code</th>
                     <th>Date of Birth</th>
+                     <th>Edit</th>
+                    <th>Delete</th> 
+                    <th>Contact</th>
                 </tr>
             </thead>
             <tbody>
@@ -228,6 +199,9 @@
                             <td><%= customer.getUsState() %></td>
                             <td><%= customer.getZipCode() %></td>
                             <td><%= customer.getDateOfBirth() %></td>
+                            <td><button class="small-btn"><i class="fa fa-pencil"></i></button></td>
+                            <td><button class="small-btn"><i class="fa fa-trash"></button></td>
+                            <td><button class="small-btn"><i class="fa fa-envelope"></button></td>
                         </tr>
                 <%  }
                 } %>
@@ -246,6 +220,8 @@
                     <th>Price</th>
                     <th>Product Manager</th>
                     <th>Product Origin</th>
+                     <th>Edit</th>
+                    <th>Delete</th> 
                     
                 </tr>
             </thead>
@@ -259,6 +235,8 @@
                             <td><%= product.getProductPrice() %></td>
                             <td><%= product.getProductManager() %></td>
                             <td><%= product.getProductOrigin() %></td>
+                            <td><button class="small-btn"><i class="fa fa-pencil"></i></button></td>
+                            <td><button class="small-btn"><i class="fa fa-trash"></button></td>
                             
                         </tr>
                 <%  }
@@ -281,7 +259,9 @@
                     <th>Customer ID</th>
                     <th>Content</th>
                     <th>Responded?</th>
-                    
+                    <th>Edit</th>
+                    <th>Delete</th> 
+                    <th>Contact</th>
                 </tr>
             </thead>
             <tbody>
@@ -297,6 +277,9 @@
                             <td><%= cm.getCustomerId() %></td>
                             <td><%= cm.getCampaignContent() %></td>
                             <td><%= cm.getHasResponded() %></td>
+                            <td><button class="small-btn"><i class="fa fa-pencil"></i></button></td>
+                            <td><button class="small-btn"><i class="fa fa-trash"></button></td>
+                            <td><button class="small-btn"><i class="fa fa-envelope"></button></td>
                         </tr>
                 <%  }
                 } %>
