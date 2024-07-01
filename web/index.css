@@ -320,6 +320,17 @@ form .form-group .form-text {
     margin-left: auto;
 }
 
+/*.alert-info {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid transparent;
+    padding: 10px 10px;
+    box-shadow: 0px 0px 2px gray;
+    background: lightcyan;
+    color: #212529;
+    display: none;
+}*/
+
 .toast button {
     margin-left: 40%;
     background: transparent;
@@ -331,3 +342,8 @@ form .form-group .form-text {
     display: block; /* Show toast when the show class is added */
 }
 
+
+.table-wrapper {
+    display: flex;
+    flex-direction: column;
+}

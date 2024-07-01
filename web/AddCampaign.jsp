@@ -1,10 +1,28 @@
 <%-- 
     Document   : AddCampaign
     Created on : Jun 11, 2024, 10:41:52 PM
-    Author     : user
+    Author     : User
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="javax.naming.InitialContext" %>
+<%@ page import="javax.naming.NamingException" %>
+<%@ page import="entity.Accountmanagers" %>
+<%@ page import="entity.Products" %>
+<%@ page import="session.AccountmanagersFacadeLocal" %>
+<%@ page import="session.ProductsFacadeLocal" %>
+
+<% AccountmanagersFacadeLocal acc = (AccountmanagersFacadeLocal) new InitialContext().lookup("java:module/AccountmanagersFacade");
+
+   List<Accountmanagers> accountManagerList = acc.findAll();
+%>
+<% ProductsFacadeLocal prod = (ProductsFacadeLocal) new InitialContext().lookup("java:module/ProductsFacade");
+
+   List<Products> productList = prod.findAll();
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -71,22 +89,44 @@
                 <div class="form-group">
                     <label for="campaign_name">Campaign Name</label>
                     <small class="form-text">Provide a meaningful, memorable name for your campaign. It might be a code name - eg: 'Operation Empty Shelf'.</small>
-                    <input type="text" name="campaign_name" id="campaign_name" placeholder="Enter campaign name" required/>
+                    <input type="text" name="campaign_name" autocomplete="off" id="campaign_name" placeholder="Enter campaign name" required/>
                 </div>
                 <div class="form-group">
                     <label for="campaign_type">Campaign Type</label>
                     <select id="campaign_type" name="campaign_type" required>
-                        <option selected>Please select</option>
-                        <option value="Weekly">Weekly</option>
-                        <option value="Quarterly">Quarterly</option>
-                        <option value="Monthly">Monthly</option>
-                        <option value="Holiday">Holiday</option>
+                        <option  selected>Please select</option>
+                        <option  value="Weekly">Weekly</option>
+                        <option  value="Quarterly">Quarterly</option>
+                        <option  value="Monthly">Monthly</option>
+                        <option  value="Holiday">Holiday</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="campaign_manager">Campaign Manager</label>
                     <small class="form-text">Provide the name of the Account Manager who serves as campaign manager.</small>
-                    <input type="text" name="campaign_manager" id="campaign_manager" required placeholder="Enter campaign manager. Eg: Tyrion Lannister"/>
+                    <select id="campaign_manager" name="campaign_manager" required>
+                        <option selected>Please Select</option>
+                   <% for(Accountmanagers managerName : accountManagerList){ 
+                       pageContext.setAttribute("managerName", managerName);%>
+                   
+                   <option value="${managerName.firstName} ${managerName.lastName}">${managerName.firstName} ${managerName.lastName}</option>
+                   
+                   <% } %>
+                    </select>
+                </div> 
+                <div class="form-group">
+                    <label for="campaign_manager_ID">Campaign Manager ID</label>
+                  <select id="campaign_manager_ID" name="campaign_manager_ID" required>
+                   <option selected>Please Select</option>
+                   <% for(Accountmanagers element : accountManagerList){ 
+                       pageContext.setAttribute("element", element);%>
+                   
+                   <option value="${element.accountManagerId}">${element.accountManagerId} -  ${element.firstName} ${element.lastName}</option>
+                   
+                   <% } %>
+                      
+                  </select>
+                    
                 </div> 
                 <div class="form-group">
                     <label for="campaign_start">Campaign Start</label>
@@ -99,18 +139,38 @@
                 <div class="form-group">
                     <label for="campaign_product">Campaign Product</label>
                     <small class="form-text">Provide only the main product being pushed in this campaign. This helps you track your product goals during the campaign.</small>
-                    <input type="text" name="campaign_product" id="campaign_product" required placeholder='Enter product name'/>
+                    <select name="campaign_product" id="campaign_product" required>
+                        <option selected>Please Select</option>
+                        <% for(Products pd : productList){ 
+                       pageContext.setAttribute("pd", pd);%>
+                   
+                      <option value="${pd.productName}">${pd.productName}</option>
+                   
+                   <% } %>
+                    </select>
+                </div> 
+                <div class="form-group">
+                    <label for="campaign_product_ID">Campaign Product ID</label>
+                     <select id="campaign_product_ID" name="campaign_product_ID" required>
+                         <option selected>Please Select</option>
+                     <% for(Products item : productList){ 
+                       pageContext.setAttribute("item", item);%>
+                   
+                   <option value="${item.productId}">${item.productId} - ${item.productName}</option>
+                   
+                   <% } %>
+                    </select>
                 </div> 
                  <div class="form-group">
                     <label for="campaign_sales_value">Campaign Sales Value Target</label>
                     <small class="form-text">How much in USD do you plan to make? Provide a rough estimate.</small>
-                    <input type="number" name="campaign_sales_value" id="campaign_product" required placeholder='Enter sales value target'/>
+                    <input type="number" name="campaign_sales_value" id="campaign_sales_value" required placeholder='Enter sales value target'/>
                 </div> 
                 
                  <div class="form-group">
                     <label for="campaign_sales_volume">Campaign Sales Volume Target</label>
                     <small class="form-text">How many units of this product do you plan to sell?</small>
-                    <input type="number" name="campaign_sales_volume" id="campaign_product" required placeholder='Enter sales volume target'/>
+                    <input type="number" name="campaign_sales_volume" id="campaign_sales_volume" required placeholder='Enter sales volume target'/>
                 </div> 
                
                 <button type="submit" class="btn-primary">Submit</button>
@@ -118,8 +178,10 @@
                 
                 <div class="feedback"></div>
             </form>
+                 
              </main>
             
+             
         </section>
          <%
         // Use JSP scriptlet to check if the toast should be shown

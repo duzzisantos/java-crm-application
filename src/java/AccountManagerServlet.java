@@ -62,7 +62,7 @@ private AccountmanagersFacadeLocal AccountManagerSession;
         acc.setFirstName(request.getParameter("manager_first_name"));
         acc.setLastName(request.getParameter("manager_last_name"));
         acc.setProductSpecialization(request.getParameter("product_specialization"));
-        acc.setEmail(request.getParameter("email"));
+        acc.setEmail(request.getParameter("manager_email"));
         acc.setGradeLevel(request.getParameter("grade_level"));
         
         //Since HTML date input values are parsed as strings in the request body, we ought to convert them to date format to fit into SQL and Obey data rules in Java

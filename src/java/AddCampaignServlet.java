@@ -10,11 +10,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.*;
 import javax.servlet.*;
 
 //Persistence related dependeencies are required as well
 import entity.*;
+import java.util.List;
 import session.*;
 import javax.persistence.*;
 import javax.transaction.*;
@@ -32,7 +34,8 @@ import utilities.DateCleanser;
 public class AddCampaignServlet extends HttpServlet {
     @EJB
     private CampaignsFacadeLocal CampaignSession;
-    
+
+   
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -47,7 +50,8 @@ public class AddCampaignServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        System.out.println(CampaignSession.count());
+        
+        
         
         System.out.println("Campaign name: " + request.getParameter("campaign_name"));
         System.out.println("Campaign type: " + request.getParameter("campaign_type"));
@@ -55,14 +59,21 @@ public class AddCampaignServlet extends HttpServlet {
         System.out.println("Campaign start: " + request.getParameter("campaign_start"));
          System.out.println("Campaign end: " + request.getParameter("campaign_end"));
         System.out.println("Campaign product: " + request.getParameter("campaign_product"));
+         System.out.println("Campaign product ID: " + request.getParameter("campaign_product_ID"));
+          System.out.println("Campaign sales volume: " + request.getParameter("campaign_sales_volume"));
+           System.out.println("Campaign sales value: " + request.getParameter("campaign_sales_value"));
         
         //Store campaign data into database
         Campaigns camp = new Campaigns();
         
         camp.setCampaignName(request.getParameter("campaign_name"));
-        camp.setCampaignType(request.getParameter("camapaign_type"));
+        camp.setCampaignType(request.getParameter("campaign_type"));
         camp.setCampaignManager(request.getParameter("campaign_manager"));
+        camp.setAccountManagerId(Integer.parseInt(request.getParameter("campaign_manager_ID")));
         camp.setCampaignProduct(request.getParameter("campaign_product"));
+        camp.setProductId(Integer.parseInt(request.getParameter("campaign_product_ID")));
+        camp.setCampaignSalesValueTarget(Integer.parseInt(request.getParameter(("campaign_sales_value"))));
+        camp.setCampaignSalesVolumeTarget(Integer.parseInt(request.getParameter(("campaign_sales_volume"))));
         
         //Convert HTML date string input into format which obeys SQL and Java data types
         DateCleanser campaignStart = new DateCleanser(request.getParameter("campaign_start"));
@@ -72,9 +83,12 @@ public class AddCampaignServlet extends HttpServlet {
         camp.setCampaignEnd(campaignEnd.getCleansedDate());
         
         CampaignSession.create(camp);
+         System.out.println(CampaignSession.count());
         
         //Add prompt message to add another data
         request.setAttribute("showToast", true);
+        
+        
         
         //Call the menu again
         request.getRequestDispatcher("/AddCampaign.jsp").forward(request, response);
@@ -119,4 +133,7 @@ public class AddCampaignServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    
+    
+   
 }

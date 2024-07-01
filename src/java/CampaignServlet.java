@@ -31,9 +31,7 @@ import javax.ejb.*;
 public class CampaignServlet extends HttpServlet {
     @EJB
     private CampaignenrollmentsFacadeLocal CampaignEnrollmentSession;
-    private AccountmanagersFacadeLocal Accountmanagers;
-    private CampaignsFacadeLocal Campaigns;
-    private CustomersFacadeLocal Customers;
+   
 
 
     /**
@@ -48,52 +46,41 @@ public class CampaignServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        //Obtain lists of reusable foreign keys which which will be supplied to the HTML select dropdown
-        List<Campaigns> campaigns = this.getCampaigns();
-        List<Accountmanagers> managers = this.getAccountManagers();
-        List<Customers> customers = this.getCustomers();
-        
-        
-        System.out.println(CampaignEnrollmentSession.count());
-        
+       
          System.out.println("Campaign Name: " + request.getParameter("campaign_enroll_name"));
         System.out.println("Campaign Manager: " + request.getParameter("campaign_enroll_manager"));
-        System.out.println("Customer ID: " + request.getParameter("customer_enroll_ID"));
-        System.out.println("Campaign Product: " + request.getParameter("campaigned_product"));
+        System.out.println("Account Manager ID: " + request.getParameter("campaign_enroll_manager_ID"));
+        System.out.println("Campaign ID: " + request.getParameter("campaign_enroll_ID"));
+        System.out.println("Customer ID: " + request.getParameter("campaign_customer_ID"));
+        System.out.println("Campaign Product: " + request.getParameter("campaign_product_ID"));
         System.out.println("Has responded?: " + request.getParameter("has_responded"));
         System.out.println("Campaign content: " + request.getParameter("campaign_content"));
 
 
+        //Sends submitted form data to database
       Campaignenrollments enr = new Campaignenrollments();
       
-      enr.setCampaignName(request.getParameter("campaign_enroll_name"));
-      enr.setCampaignManager(request.getParameter("campaign_enroll_manager"));
-      enr.setHasResponded(Boolean.parseBoolean(request.getParameter("has_responded")));
-      enr.setCampaignContent(request.getParameter("campaign_content"));
-      enr.setAccountManagerId(Integer.parseInt(request.getParameter("campaign_enroll_manager_ID")));
-      enr.setCustomerId(Integer.parseInt(request.getParameter("campaign_customer_ID")));
       enr.setCampaignId(Integer.parseInt(request.getParameter("campaign_enroll_ID")));
+      enr.setCampaignName(request.getParameter("campaign_enroll_name"));
+      enr.setAccountManagerId(Integer.parseInt(request.getParameter("campaign_enroll_manager_ID")));
+      enr.setCampaignManager(request.getParameter("campaign_enroll_manager"));
+      enr.setProductId(Integer.parseInt(request.getParameter("campaign_product_ID")));
+      enr.setCustomerId(Integer.parseInt(request.getParameter("campaign_customer_ID")));
+      enr.setCampaignContent(request.getParameter("campaign_content"));
+      enr.setHasResponded(Boolean.parseBoolean(request.getParameter("has_responded")));
+      
+      
+      
+      
+     
      
      
       CampaignEnrollmentSession.create(enr);
-      
-      
-      
-      
-      
-     
-      
+      System.out.println(CampaignEnrollmentSession.count());
         
         
         //Add prompt message to add another data
         request.setAttribute("showToast", true);
-        
-        //Provide reusable data in the frontend
-        request.setAttribute("campains", campaigns);
-        request.setAttribute("accountManagers", managers);
-        request.setAttribute("customers", customers);
-        
        
         request.getRequestDispatcher("/CampaignEnroll.jsp").forward(request, response);
       
@@ -138,18 +125,6 @@ public class CampaignServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
     
-    //Retrieve lists of customer, campaign, and account manager IDs
-    private List <Campaigns> getCampaigns(){
-        return Campaigns.findAll();
-    }
-    
-    private List <Customers> getCustomers(){
-       return Customers.findAll();
-    }
-    
-    private List <Accountmanagers> getAccountManagers(){
-       return Accountmanagers.findAll();
-    }
     
 
 }

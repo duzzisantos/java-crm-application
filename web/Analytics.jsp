@@ -5,13 +5,28 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="javax.naming.InitialContext" %>
+<%@ page import="javax.naming.NamingException" %>
+<%@ page import="entity.Accountmanagers" %>
+<%@ page import="entity.Products" %>
+<%@ page import="entity.Customers" %>
+<%@ page import="entity.Campaigns" %>
+<%@ page import="entity.Campaignenrollments" %>
+<%@ page import="session.AccountmanagersFacadeLocal" %>
+<%@ page import="session.ProductsFacadeLocal" %>
+<%@ page import="session.AccountmanagersFacadeLocal" %>
+<%@ page import="session.ProductsFacadeLocal" %>
+<%@ page import="session.CustomersFacadeLocal" %>
+<%@ page import="session.CampaignsFacadeLocal" %>
+<%@ page import="session.CampaignenrollmentsFacadeLocal" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Campaign Enrollment</title>
+        <title>Funnel Analytics</title>
         
     </head>
     <body>
@@ -65,20 +80,12 @@
             <main>
                 <h1 class="header-color">Analytics</h1> 
             <hr>
-            <div class="container">
-                <div class="form-group">
-                    <label for="choose-analytics">Choose Table </label>
-                    <select id="choose-analytics">
-                        <option selected>Select</option>
-                        <option value="Account Managers">Account Managers</option>
-                        <option value="Campaigns">Campaigns</option>
-                        <option value="Customers">Customers</option> 
-                        <option value="Products">Products</option>
-                       
-                    </select>
+            
+            <section class="table-wrapper">
+                <div class="chart-md">
+                    
                 </div>
-                
-            </div>
+            </section>
             </main>
             
         </section>

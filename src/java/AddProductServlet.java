@@ -24,7 +24,7 @@ import javax.enterprise.context.*;
 import javax.ejb.*;
 /**
  *
- * @author Duzie Uche-Abba
+ * @author User
  */
 @WebServlet(urlPatterns = {"/AddProductServlet"})
 public class AddProductServlet extends HttpServlet {
@@ -64,7 +64,7 @@ public class AddProductServlet extends HttpServlet {
          prod.setProductOrigin(request.getParameter("product_origin"));
          
          ProductSession.create(prod);
-         System.out.println(ProductSession.count());
+         System.out.println("Number of products: "+ ProductSession.count());
         
         
         //Add prompt message to add another data

@@ -68,11 +68,11 @@
                 <div class="toast" id="toast2">Form submitted <button class="close-btn"><i class="fa fa-close"></i></button></div>
                 <div class="form-group">
                     <label for="manager_first_name">First Name</label>
-                    <input type="text" name="manager_first_name" id="manager_first_name" placeholder="Enter first name" required/>
+                    <input type="text" name="manager_first_name" id="manager_first_name" autocomplete="off" placeholder="Enter first name" required/>
                 </div>
                 <div class="form-group">
                     <label for="manager_last_name">Last Name</label>
-                    <input type="text" name="manager_last_name" id="manager_last_name" placeholder="Enter last name" required/>
+                    <input type="text" name="manager_last_name" id="manager_last_name" autocomplete="off" placeholder="Enter last name" required/>
                 </div>
                
                 <div class="form-group">
@@ -84,25 +84,31 @@
                         <option value="Printer">Printer</option>
                         <option value="Monitor">Monitor</option>
                         <option value="Mice">Mice</option>
+                        <option value="Speakers">Speakers</option> 
+                        <option value="Hard Drives">Hard Drives</option> 
+                        <option value="Keyboards">Keyboards</option>  
+                        <option value="Tablets">Tablets</option>
+                        <option value="Mobile Phones">Mobile Phones</option>
+                        <option value="WiFi Routers">WiFi Routers</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="grade_level">Grade Level</label>
                     <small class="form-text">Grade levels range from 1 to 15. In any case you have no idea, you may fill in 'Not yet known' or better still ask your HR.</small>
-                    <input type="text" name="grade_level" id="grade_level" required/>
+                    <input type="text" name="grade_level" id="grade_level" autocomplete="off" required/>
                 </div> 
                 
                 <div class="form-group">
                     <label for="manager_email">Email</label>
                     <small class="form-text">Ensure to use work email address. Email addresses with generic domain names (eg: yahoo.com, gmail.com) are not so official.</small>
-                    <input type="text" name="manager_email" id="manager_email" placeholder="Enter email"
+                    <input type="text" name="manager_email" id="manager_email" placeholder="Enter email" autocomplete="off"
                            pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;" 
                            required/>
                 </div> 
                 
                 <div class="form-group">
                     <label for="manager_phone">Phone Number</label>
-                    <input type="tel" name="manager_phone" id="manager_phone" placeholder="Enter phone number" required/>
+                    <input type="tel" name="manager_phone" autocomplete="off" id="manager_phone" placeholder="Enter phone number" required/>
                 </div> 
                 <div class="form-group">
                     <label for="doe">Date of Employment</label>

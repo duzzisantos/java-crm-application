@@ -8,9 +8,9 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -29,6 +29,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Campaignenrollments.findAll", query = "SELECT c FROM Campaignenrollments c"),
     @NamedQuery(name = "Campaignenrollments.findByEnrollmentId", query = "SELECT c FROM Campaignenrollments c WHERE c.enrollmentId = :enrollmentId"),
     @NamedQuery(name = "Campaignenrollments.findByCampaignName", query = "SELECT c FROM Campaignenrollments c WHERE c.campaignName = :campaignName"),
+    @NamedQuery(name = "Campaignenrollments.findByCampaignId", query = "SELECT c FROM Campaignenrollments c WHERE c.campaignId = :campaignId"),
+    @NamedQuery(name = "Campaignenrollments.findByAccountManagerId", query = "SELECT c FROM Campaignenrollments c WHERE c.accountManagerId = :accountManagerId"),
+    @NamedQuery(name = "Campaignenrollments.findByCustomerId", query = "SELECT c FROM Campaignenrollments c WHERE c.customerId = :customerId"),
+    @NamedQuery(name = "Campaignenrollments.findByProductId", query = "SELECT c FROM Campaignenrollments c WHERE c.productId = :productId"),
     @NamedQuery(name = "Campaignenrollments.findByCampaignManager", query = "SELECT c FROM Campaignenrollments c WHERE c.campaignManager = :campaignManager"),
     @NamedQuery(name = "Campaignenrollments.findByCampaignContent", query = "SELECT c FROM Campaignenrollments c WHERE c.campaignContent = :campaignContent"),
     @NamedQuery(name = "Campaignenrollments.findByHasResponded", query = "SELECT c FROM Campaignenrollments c WHERE c.hasResponded = :hasResponded")})
@@ -36,9 +40,9 @@ public class Campaignenrollments implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "ENROLLMENT_ID", unique = true)
+    @Column(name = "ENROLLMENT_ID", nullable = false)
     private Integer enrollmentId;
     @Size(max = 30)
     @Column(name = "CAMPAIGN_NAME")
@@ -57,6 +61,8 @@ public class Campaignenrollments implements Serializable {
     private int campaignId;
     @Column(name = "CUSTOMER_ID")
     private int customerId;
+    @Column(name = "PRODUCT_ID")
+    private int productId;
 
     public Campaignenrollments() {
     }
@@ -128,6 +134,16 @@ public class Campaignenrollments implements Serializable {
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
+    
+     public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+    
+    
 
     @Override
     public int hashCode() {

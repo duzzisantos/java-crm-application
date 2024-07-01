@@ -69,26 +69,26 @@
                 <div class="toast" id="toast3">Form submitted <button class="close-btn"><i class="fa fa-close"></i></button></div>
                 <div class="form-group">
                     <label for="first_name">First Name</label>
-                    <input type="text" name="first_name" id="first_name" placeholder="Enter first name" required/>
+                    <input type="text" name="first_name" autocomplete="off" id="first_name" placeholder="Enter first name" required/>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Last Name</label>
-                    <input type="text" name="last_name" id="last_name" placeholder="Enter last name" required/>
+                    <input type="text" name="last_name" autocomplete="off" id="last_name" placeholder="Enter last name" required/>
                 </div>
                
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email" placeholder="Enter email"
+                    <input type="text" name="email" id="email" autocomplete="off" placeholder="Enter email"
                      pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;" 
                      required/>
                 </div> 
                 <div class="form-group">
                     <label for="postal_address">Postal Address</label>
-                    <input type="text" name="postal_address" id="postal_address" placeholder="Enter postal address" required/>
+                    <input type="text" name="postal_address" autocomplete="off" id="postal_address" placeholder="Enter postal address" required/>
                 </div> 
                  <div class="form-group">
                     <label for="city">City</label>
-                    <input type="text" name="city" id="postal_address" placeholder="Enter city" required/>
+                    <input type="text" name="city" id="postal_address" autocomplete="off" placeholder="Enter city" required/>
                 </div> 
                 <div class="form-group">
                     <label for="state_us">State</label>
@@ -150,11 +150,11 @@
                 <div class="form-group">
                     <label for="zip_code">ZIP Code</label>
                     <small class="form-text">Provide a US ZIP Code (for US residents only).</small>
-                    <input type="text" name="zip_code" id="zip_code" placeholder="Enter ZIP Code" pattern="^\d{5}(-\d{4})?$" required/>
+                    <input type="text" name="zip_code" autocomplete="off" id="zip_code" placeholder="Enter ZIP Code" pattern="^\d{5}(-\d{4})?$" required/>
                 </div> 
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" name="phone" id="phone" placeholder="Enter phone number" required/>
+                    <input type="tel" name="phone" autocomplete="off" id="phone" placeholder="Enter phone number" required/>
                     
                 </div> 
                 
