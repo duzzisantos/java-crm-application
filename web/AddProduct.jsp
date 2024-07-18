@@ -58,6 +58,7 @@
                         <option value="Tablets">Tablets</option>
                         <option value="Mobile Phones">Mobile Phones</option>
                         <option value="WiFi Routers">WiFi Routers</option>
+                        <option value="Casual Apparels">Casual Apparels</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -278,10 +279,19 @@
                                 <option value="ZA">South Africa 🇿🇦</option>
                                 <option value="ZM">Zambia 🇿🇲</option>
                                 <option value="ZW">Zimbabwe 🇿🇼</option>
-</select>
+                            </select>
                 </div> 
                 <button type="submit" class="btn-primary">Submit</button>
                 <input type="reset" class="btn-secondary"/>
+                
+                <div class="feedback-failure">
+                     <% 
+                        if(request.getAttribute("exception-thrown") != null){
+                            out.print(request.getAttribute("exception-thrown"));
+                        }
+
+                      %>
+                </div>
             </form>
          
             </main>

@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import LegalRules.CityRules;
+import LegalRules.StateRules;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -23,6 +25,7 @@ import javax.enterprise.context.*;
 import javax.ejb.*;
 
 import utilities.DateCleanser;
+import ValidationRules.*;
 
 /**
  *
@@ -58,6 +61,23 @@ public class AddCustomerServlet extends HttpServlet {
          System.out.println("Postal address: " + request.getParameter("postal_address"));
         System.out.println("Date of birth: " + request.getParameter("dob"));
         
+        try{
+            
+            //Applying business rules for email, zip code, city, and state
+        EmailValidationRules evr = new EmailValidationRules();
+        evr.TestEmailAddress(request.getParameter("email"));
+          
+        ZipCodeValidationRules zvr = new ZipCodeValidationRules();
+        zvr.TestZipCode(Integer.parseInt(request.getParameter("zip_code")));
+        
+        //Business rules that cover selected states and cities in the US
+         String [] selectedCities = {"Key West", "Okechobee", "Shreveport", "Billings", "Albuquerque", "Niagara Falls", "Cheyenne"};
+         String [] selectedStates = {"Nevada", "Alaska", "Puerto Rico", "Utah", "Oregon"};
+         StateRules sr = new StateRules();
+         CityRules cr = new CityRules();
+         cr.applyCityShippingRules(selectedCities, request.getParameter("city"));
+         sr.applyStateShippingRules(selectedStates, request.getParameter("state_us"));
+        
         Customers cust = new Customers();
         
         cust.setFirstName(request.getParameter("first_name"));
@@ -80,6 +100,11 @@ public class AddCustomerServlet extends HttpServlet {
         
         //Call the menu again
         request.getRequestDispatcher("/AddCustomer.jsp").forward(request, response);
+        }catch(Exception e){
+            request.setAttribute("exception-thrown", e.getMessage());
+            //Call the menu again
+        request.getRequestDispatcher("/AddCustomer.jsp").forward(request, response);
+        }
         
     }
 

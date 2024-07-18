@@ -23,6 +23,7 @@
             <hr>
             <form method="post" action="AccountManagerServlet" name="addAccountManager">
                 <div class="toast" id="toast2">Form submitted <button class="close-btn"><i class="fa fa-close"></i></button></div>
+               
                 <div class="form-group">
                     <label for="manager_first_name">First Name</label>
                     <input type="text" name="manager_first_name" id="manager_first_name" autocomplete="off" placeholder="Enter first name" required/>
@@ -76,11 +77,20 @@
                 <button type="submit" class="btn-primary">Submit</button>
                 <input type="reset" class="btn-secondary"/>
                 
-                <div class="feedback"></div>
+                <div class="feedback-failure">
+                     <% 
+                        if(request.getAttribute("exception-thrown") != null){
+                            out.print(request.getAttribute("exception-thrown"));
+                        }
+
+                      %>
+                </div>
             </form>
             
-            </main>
+            </main> <br>
+           
             
+            <br/>
         </section>
           <%
         // Use JSP scriptlet to check if the toast should be shown
@@ -96,5 +106,8 @@
     <%
         }
     %>
+    
+    
+   
     </body>
 </html>

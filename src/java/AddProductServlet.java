@@ -22,6 +22,8 @@ import javax.transaction.*;
 import javax.annotation.*;
 import javax.enterprise.context.*;
 import javax.ejb.*;
+import LegalRules.*;
+
 /**
  *
  * @author User
@@ -53,8 +55,19 @@ public class AddProductServlet extends HttpServlet {
         System.out.println("Product manager: " + request.getParameter("product_manager"));
         System.out.println("Product origin: " + request.getParameter("product_origin"));
 
-         Products prod = new Products();
+         try {
+             
+         //Test if some fields pass business rules - Here we test the countries of origin and apply special prices based on the dialog's suggestion
+          
+        String [] selectedCountries = {"Colombia", "Cambodia", "Vietnam", "Bangladesh",
+            "Uganda", "Cote d'Ivoire", "Romania", "Ukraine", "Venezuela", "VN", "VE", "UA", "UG", "RO", "CI", "BD", "CO"};
+        String [] selectedProducts = {"Baseball Hat", "Hiking Shoes", "Tennis Shoes", "Hip Flask", "Spring Jacket"};
+        PriceRules rules = new PriceRules();
+        rules.applyPriceRules(selectedCountries, selectedProducts, 
+                request.getParameter("product_origin"), request.getParameter("product_price"));
          
+             
+         Products prod = new Products();
          
          prod.setProductName(request.getParameter("product_name"));
          prod.setProductCategory(request.getParameter("product_category"));
@@ -72,6 +85,11 @@ public class AddProductServlet extends HttpServlet {
         
         //Call the menu again
         request.getRequestDispatcher("/AddProduct.jsp").forward(request, response);
+         }catch(Exception e){
+             request.setAttribute("exception-thrown", e.getMessage());
+              //Call the menu again
+        request.getRequestDispatcher("/AddProduct.jsp").forward(request, response);
+         }
        
     }
 

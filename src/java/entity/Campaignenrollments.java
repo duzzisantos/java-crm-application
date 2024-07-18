@@ -35,6 +35,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Campaignenrollments.findByProductId", query = "SELECT c FROM Campaignenrollments c WHERE c.productId = :productId"),
     @NamedQuery(name = "Campaignenrollments.findByCampaignManager", query = "SELECT c FROM Campaignenrollments c WHERE c.campaignManager = :campaignManager"),
     @NamedQuery(name = "Campaignenrollments.findByCampaignContent", query = "SELECT c FROM Campaignenrollments c WHERE c.campaignContent = :campaignContent"),
+    @NamedQuery(name = "Campaignenrollments.findByOfferedPrice", query = "SELECT c FROM Campaignenrollments c WHERE c.offeredPrice = :offeredPrice"),
+    @NamedQuery(name = "Campaignenrollments.findByPurchaseQuantity", query = "SELECT c FROM Campaignenrollments c WHERE c.purchaseQuantity = :purchaseQuantity"),
+    @NamedQuery(name = "Campaignenrollments.findByResponseEmail", query = "SELECT c FROM Campaignenrollments c WHERE c.responseEmail = :responseEmail"),
     @NamedQuery(name = "Campaignenrollments.findByHasResponded", query = "SELECT c FROM Campaignenrollments c WHERE c.hasResponded = :hasResponded")})
 public class Campaignenrollments implements Serializable {
 
@@ -63,6 +66,12 @@ public class Campaignenrollments implements Serializable {
     private int customerId;
     @Column(name = "PRODUCT_ID")
     private int productId;
+    @Column (name = "PURCHASE_QUANTITY")
+    private int purchaseQuantity;
+    @Column (name = "OFFERED PRICE")
+    private double offeredPrice;
+    @Column (name = "RESPONSE_EMAIL")
+    private String responseEmail;
 
     public Campaignenrollments() {
     }
@@ -141,6 +150,30 @@ public class Campaignenrollments implements Serializable {
 
     public void setProductId(int productId) {
         this.productId = productId;
+    }
+    
+    public int getPurchaseQuantity(){
+        return purchaseQuantity;
+    }
+    
+    public void setPurchaseQuantity(int purchaseQty){
+        this.purchaseQuantity = purchaseQty;
+    }
+    
+    public double getOfferedPrice(){
+        return offeredPrice;
+    }
+    
+    public void setOfferedPrice(double priceOffer){
+        this.offeredPrice = priceOffer;
+    }
+    
+    public String getResponseEmail(){
+        return responseEmail;
+    }
+    
+    public void setResponseEmail(String responseEmail){
+        this.responseEmail = responseEmail;
     }
     
     

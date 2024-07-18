@@ -103,7 +103,7 @@
                 <% if (accountManagerList != null) {
                     for (Accountmanagers element : accountManagerList) { %>
                         <tr>
-                            <td><%= element.getFirstName() %></td>
+                            <td><%= element.getFirstName()  %></td>
                             <td><%= element.getLastName() %></td>
                             <td><%= element.getProductSpecialization() %></td>
                             <td><%= element.getGradeLevel() %></td>

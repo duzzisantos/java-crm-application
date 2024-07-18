@@ -41,4 +41,16 @@
                 </li>
                
             </ul>
+                <hr>
+                <ul class="nav-items">
+               
+                <li>
+                    <a href="InfoManagement.jsp" class="nav-links"> <i class="fa fa-phone"></i> Relationship</a>
+                </li>
+                <li>
+                    <a href="Analytics.jsp" class="nav-links"><i class="fa fa-bar-chart"></i> Performance</a>
+                </li>
+                
+               
+            </ul>
          </div>

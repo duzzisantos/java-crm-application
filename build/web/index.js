@@ -53,6 +53,28 @@ const countdownText = () => {
     }
 });
 
+ document.addEventListener('DOMContentLoaded', () => {
+    const closeButtons = document.querySelectorAll('.close-btn');
+
+    closeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const toast = button.closest('.toast1');
+            hideToast(toast);
+        });
+    });
+
+    window.showToast = function(toast) {
+        toast.classList.add('show');
+        setTimeout(() => {
+            hideToast(toast);
+        }, 7000); // Hide after 7 seconds
+    };
+
+    function hideToast(toast) {
+        toast.classList.remove('show');
+    }
+});
+
 
 countdownText();
 

@@ -23,6 +23,7 @@ import javax.enterprise.context.*;
 import javax.ejb.*;
 
 import utilities.DateCleanser;
+import ValidationRules.*;
 
 /**
  *
@@ -45,7 +46,6 @@ private AccountmanagersFacadeLocal AccountManagerSession;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
         System.out.println("First name: " + request.getParameter("manager_first_name"));
         System.out.println("Last name: " + request.getParameter("manager_last_name"));
         System.out.println("Product specialization: " + request.getParameter("product_specialization"));
@@ -54,7 +54,12 @@ private AccountmanagersFacadeLocal AccountManagerSession;
         System.out.println("Grade level: " + request.getParameter("grade_level"));
         System.out.println("Date of employment: " + request.getParameter("doe"));
         
-        System.out.println(AccountManagerSession.count());
+      try{
+          
+        EmailValidationRules evr = new EmailValidationRules();
+        evr.TestEmailAddress(request.getParameter("manager_email"));
+          
+       
         
         //Create data to be stored in AccountManagers table
         Accountmanagers acc = new Accountmanagers();
@@ -71,16 +76,20 @@ private AccountmanagersFacadeLocal AccountManagerSession;
         acc.setPhoneNumber(request.getParameter("manager_phone"));
         
         AccountManagerSession.create(acc);
-        
-        
-        
-        
+        System.out.println(AccountManagerSession.count());
+
         //Add prompt message to add another data
         request.setAttribute("showToast", true);
         
         //Call the menu again
        request.getRequestDispatcher("/AddAccountManager.jsp").forward(request, response);
      
+      }catch(Exception e){
+          request.setAttribute("exception-thrown", e.getMessage());
+           //Call the menu again
+          request.getRequestDispatcher("/AddAccountManager.jsp").forward(request, response);
+          System.out.println(e.getMessage());
+      }
         
 
   }

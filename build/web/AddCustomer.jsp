@@ -121,6 +121,15 @@
                 </div> 
                 <button type="submit" class="btn-primary">Submit</button>
                 <input type="reset" class="btn-secondary"/>
+                
+                <div class="feedback-failure">
+                     <% 
+                        if(request.getAttribute("exception-thrown") != null){
+                            out.print(request.getAttribute("exception-thrown"));
+                        }
+
+                      %>
+                </div>
             </form>
             </main>
             
