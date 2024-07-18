@@ -35,9 +35,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Campaignenrollments.findByProductId", query = "SELECT c FROM Campaignenrollments c WHERE c.productId = :productId"),
     @NamedQuery(name = "Campaignenrollments.findByCampaignManager", query = "SELECT c FROM Campaignenrollments c WHERE c.campaignManager = :campaignManager"),
     @NamedQuery(name = "Campaignenrollments.findByCampaignContent", query = "SELECT c FROM Campaignenrollments c WHERE c.campaignContent = :campaignContent"),
-    @NamedQuery(name = "Campaignenrollments.findByOfferedPrice", query = "SELECT c FROM Campaignenrollments c WHERE c.offeredPrice = :offeredPrice"),
-    @NamedQuery(name = "Campaignenrollments.findByPurchaseQuantity", query = "SELECT c FROM Campaignenrollments c WHERE c.purchaseQuantity = :purchaseQuantity"),
-    @NamedQuery(name = "Campaignenrollments.findByResponseEmail", query = "SELECT c FROM Campaignenrollments c WHERE c.responseEmail = :responseEmail"),
     @NamedQuery(name = "Campaignenrollments.findByHasResponded", query = "SELECT c FROM Campaignenrollments c WHERE c.hasResponded = :hasResponded")})
 public class Campaignenrollments implements Serializable {
 
@@ -68,7 +65,7 @@ public class Campaignenrollments implements Serializable {
     private int productId;
     @Column (name = "PURCHASE_QUANTITY")
     private int purchaseQuantity;
-    @Column (name = "OFFERED PRICE")
+    @Column (name = "OFFERED_PRICE")
     private double offeredPrice;
     @Column (name = "RESPONSE_EMAIL")
     private String responseEmail;
